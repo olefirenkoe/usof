@@ -25,7 +25,7 @@ console.log(1);
 window.SE.init({
 	clientId: 19555, // Здесь мы ставим выданный нам clientId
 	key: 'qBt3pH)yY2*kx96ogUORkA((', // А здесь соответственно key
-    channelUrl: 'https://olefirenkoe.github.io/', // Особое внимание стоит уделить этому полю. Здесь нужно указать домен, на котором хостится и крутится приложение
+    channelUrl: 'https://olefirenkoe.github.io/blank.html', // Особое внимание стоит уделить этому полю. Здесь нужно указать домен, на котором хостится и крутится приложение
 	complete: function (data) {
         window.SE.authenticate({
             success: function(data) { alert('Я получил доступ!'); }, // Приложение авторизовало пользователя
