@@ -27,7 +27,7 @@ window.SE.init({
 	key: 'qBt3pH)yY2*kx96ogUORkA((', // А здесь соответственно key
     channelUrl: 'https://olefirenkoe.github.io/', // Особое внимание стоит уделить этому полю. Здесь нужно указать домен, на котором хостится и крутится приложение
 	complete: function (data) {
-        SE.authenticate({
+        window.SE.authenticate({
             success: function(data) { alert('Я получил доступ!'); }, // Приложение авторизовало пользователя
             error: function(data) {  alert('Я не получил доступ :('); }, // Приложение не авторизовало пользователя
         }); 
