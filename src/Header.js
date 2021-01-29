@@ -30,7 +30,7 @@ window.SE.init({
 
 
 
-
+alert(2);
 
 
 // 19555 id
