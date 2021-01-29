@@ -22,7 +22,8 @@ export default Header;
 window.SE.init({
 	clientId: 19555, // Здесь мы ставим выданный нам clientId
 	key: 'qBt3pH)yY2*kx96ogUORkA((', // А здесь соответственно key
-	channelUrl: 'https://olefirenkoe.github.io/usof/blank.html', // Особое внимание стоит уделить этому полю. Здесь нужно указать домен, на котором хостится и крутится приложение
+    // channelUrl: 'https://olefirenkoe.github.io/usof/blank.html',
+    channelUrl: 'https://github.com/', // Особое внимание стоит уделить этому полю. Здесь нужно указать домен, на котором хостится и крутится приложение
 	complete: function (data) { alert("Я загрузился!"); } // Здесь мы указываем некоторую функцию, которая будет выполнена в случае успеха
 });
 
