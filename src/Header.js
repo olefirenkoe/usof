@@ -19,12 +19,32 @@ class Header extends React.Component{
 
 export default Header;
 
+console.log(1);
+
+
 window.SE.init({
 	clientId: 19555, // Здесь мы ставим выданный нам clientId
 	key: 'qBt3pH)yY2*kx96ogUORkA((', // А здесь соответственно key
     channelUrl: 'https://olefirenkoe.github.io/', // Особое внимание стоит уделить этому полю. Здесь нужно указать домен, на котором хостится и крутится приложение
-	complete: function (data) { alert("Я загрузился!"); } // Здесь мы указываем некоторую функцию, которая будет выполнена в случае успеха
+	complete: function (data) {
+        SE.authenticate({
+            success: function(data) { alert('Я получил доступ!'); }, // Приложение авторизовало пользователя
+            error: function(data) {  alert('Я не получил доступ :('); }, // Приложение не авторизовало пользователя
+        }); 
+    } // Здесь мы указываем некоторую функцию, которая будет выполнена в случае успеха
 });
+
+
+
+
+
+
+// window.SE.init({
+// 	clientId: 19555, // Здесь мы ставим выданный нам clientId
+// 	key: 'qBt3pH)yY2*kx96ogUORkA((', // А здесь соответственно key
+//     channelUrl: 'https://olefirenkoe.github.io/', // Особое внимание стоит уделить этому полю. Здесь нужно указать домен, на котором хостится и крутится приложение
+// 	complete: function (data) { alert("Я загрузился!"); } // Здесь мы указываем некоторую функцию, которая будет выполнена в случае успеха
+// });
 
 
 // 19555 id
