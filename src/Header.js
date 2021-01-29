@@ -19,7 +19,7 @@ class Header extends React.Component{
 
 export default Header;
 
-SE.init({
+window.SE.init({
 	clientId: 19555, // Здесь мы ставим выданный нам clientId
 	key: 'qBt3pH)yY2*kx96ogUORkA((', // А здесь соответственно key
 	channelUrl: 'http://example.com/', // Особое внимание стоит уделить этому полю. Здесь нужно указать домен, на котором хостится и крутится приложение
