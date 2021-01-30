@@ -38,6 +38,11 @@ button {
     padding: 8px;
     border: none;
     border-radius: 5px;
+    outline: none;
+}
+
+button:active {
+   margin-top: 1px;
 }
 
 button:hover {
