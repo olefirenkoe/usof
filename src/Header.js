@@ -29,7 +29,7 @@ class Header extends React.Component {
             channelUrl: 'https://olefirenkoe.github.io/blank.html', // Особое внимание стоит уделить этому полю. Здесь нужно указать домен, на котором хостится и крутится приложение
             complete: function() {
                 alert("sfsf0");
-                this.allowLogin();
+                allowLogin();
             }    
         });  
     }
