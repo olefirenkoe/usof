@@ -19,7 +19,7 @@ class Header extends React.Component{
 
 export default Header;
 
-let buttonLog = document.getElementById('log');
+let buttonLog = document.getElementById("log");
 console.log(buttonLog);
 
 function auth(data) {
