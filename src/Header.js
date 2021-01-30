@@ -21,6 +21,7 @@ export default Header;
 
 
 function auth() {
+    console.log(232);
     window.SE.authenticate({
         success: function(data) { alert('Я получил доступ!'); }, // Приложение авторизовало пользователя
         error: function(data) {  alert('Я не получил доступ :('); }, // Приложение не авторизовало пользователя
