@@ -10,7 +10,7 @@ class Header extends React.Component{
             <header>
                 <img src={logo} className="logo" alt="logo"/>
                 <span className="label">stack <b>usof</b></span>
-                <button id="log" disabled onClick={auth}>Log in</button>
+                <button id="log"  onClick={auth}>Log in</button>
 
             </header>
         )
