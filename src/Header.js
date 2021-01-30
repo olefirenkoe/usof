@@ -12,6 +12,7 @@ class Header extends React.Component {
         };
 
         this.handleClick = this.handleClick.bind(this);
+        this.allowLogin = this.allowLogin.bind(this);
     }
 
     handleClick() {
@@ -27,6 +28,7 @@ class Header extends React.Component {
             key: 'qBt3pH)yY2*kx96ogUORkA((', // А здесь соответственно key
             channelUrl: 'https://olefirenkoe.github.io/blank.html', // Особое внимание стоит уделить этому полю. Здесь нужно указать домен, на котором хостится и крутится приложение
             complete: function() {
+                alert("sfsf0");
                 this.allowLogin();
             }    
         });  
@@ -81,7 +83,7 @@ function logOut() {
 //         console.log("tut");
 //     }    
 // });
-
+// 
 
 
 
