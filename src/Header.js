@@ -34,6 +34,7 @@ window.SE.init({
     channelUrl: 'https://olefirenkoe.github.io/blank.html', // Особое внимание стоит уделить этому полю. Здесь нужно указать домен, на котором хостится и крутится приложение
     // complete: document.getElementById('log').removeAttribute('disabled')
     complete: function(data) {
+        console.log(document.getElementById('log'));
         document.getElementById('log').removeAttribute('disabled');
     }
         
