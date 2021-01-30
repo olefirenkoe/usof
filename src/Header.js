@@ -1,45 +1,83 @@
 import React from 'react';
 import logo from '../src/logo.png';
 import '../src/header.css';
-// import SE from 'https://cdn.sstatic.net/apiv2/js/all.js?v=bc9137ab1d55';
 
- 
-class Header extends React.Component{
-    render(){
+
+class Header extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            status: true,
+            disabled: true
+        };
+
+        this.handleClick = this.handleClick.bind(this);
+        // this.stackEx = this.stackEx.bind(this);
+    }
+
+    handleClick() {
+        this.state.status ? auth() : logOut();
+        this.setState(state => ({
+            status: !state.status
+        }));
+    }
+
+    componentDidMount() {
+        window.SE.init({
+            clientId: 19555, // Здесь мы ставим выданный нам clientId
+            key: 'qBt3pH)yY2*kx96ogUORkA((', // А здесь соответственно key
+            channelUrl: 'https://olefirenkoe.github.io/blank.html', // Особое внимание стоит уделить этому полю. Здесь нужно указать домен, на котором хостится и крутится приложение
+            complete: function() {
+                this.setState({
+                    disabled: false
+                });
+            }    
+        });  
+    }
+    
+    render() {
         return(
             <header>
                 <img src={logo} className="logo" alt="logo"/>
                 <span className="label">stack <b>usof</b></span>
-                <button id="log" disabled onClick={auth}>Log in</button>
-
+                <button id="log" disabled={this.state.disabled} onClick={this.handleClick}>{this.state.status ? 'Log in' : 'Log out'}</button>
             </header>
-        )
+        );
     }
+    
 }
 
 export default Header;
 
-let buttonLog = document.getElementById("log");
-console.log(buttonLog);
-
-function auth(data) {
-    console.log(232);
-    window.SE.authenticate({
-        success: function(data) { alert('Я получил доступ!'); }, // Приложение авторизовало пользователя
-        error: function(data) {  alert('Я не получил доступ :('); }, // Приложение не авторизовало пользователя
-    }); 
-} 
 
 
-window.SE.init({
-	clientId: 19555, // Здесь мы ставим выданный нам clientId
-	key: 'qBt3pH)yY2*kx96ogUORkA((', // А здесь соответственно key
-    channelUrl: 'https://olefirenkoe.github.io/blank.html', // Особое внимание стоит уделить этому полю. Здесь нужно указать домен, на котором хостится и крутится приложение
-    complete: function(data) {
-        buttonLog.disabled = false;
-    }
-        
-});
+function auth() {
+    console.log("Log in");
+}
+
+function logOut() {
+    console.log('Log out');
+}
+
+
+
+// function auth(data) {
+//     console.log(232);
+//     window.SE.authenticate({
+//         success: function(data) { alert('Я получил доступ!'); }, // Приложение авторизовало пользователя
+//         error: function(data) {  alert('Я не получил доступ :('); }, // Приложение не авторизовало пользователя
+//     }); 
+// } 
+
+
+// window.SE.init({
+// 	clientId: 19555, // Здесь мы ставим выданный нам clientId
+// 	key: 'qBt3pH)yY2*kx96ogUORkA((', // А здесь соответственно key
+//     channelUrl: 'https://olefirenkoe.github.io/blank.html', // Особое внимание стоит уделить этому полю. Здесь нужно указать домен, на котором хостится и крутится приложение
+//     complete: function(data) {
+//         console.log("tut");
+//     }    
+// });
 
 
 
