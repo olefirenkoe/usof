@@ -10,7 +10,7 @@ class Header extends React.Component{
             <header>
                 <img src={logo} className="logo" alt="logo"/>
                 <span className="label">stack <b>usof</b></span>
-                <button id="log" disabled onClick={auth}>Log in</button>
+                <button id="log" onClick={auth}>Log in</button>
 
             </header>
         )
@@ -20,7 +20,7 @@ class Header extends React.Component{
 export default Header;
 
 
-function auth() {
+function auth(data) {
     console.log(232);
     window.SE.authenticate({
         success: function(data) { alert('Я получил доступ!'); }, // Приложение авторизовало пользователя
