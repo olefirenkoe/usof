@@ -12,7 +12,7 @@ class Header extends React.Component {
         };
 
         this.handleClick = this.handleClick.bind(this);
-        this.allowLogin = this.allowLogin.bind(this);
+        // this.allowLogin = this.allowLogin.bind(this);
     }
 
     handleClick() {
@@ -27,9 +27,9 @@ class Header extends React.Component {
             clientId: 19555, // Здесь мы ставим выданный нам clientId
             key: 'qBt3pH)yY2*kx96ogUORkA((', // А здесь соответственно key
             channelUrl: 'https://olefirenkoe.github.io/blank.html', // Особое внимание стоит уделить этому полю. Здесь нужно указать домен, на котором хостится и крутится приложение
-            complete: function() {
-                alert("sfsf0");
-                allowLogin();
+            complete: () => {
+                console.log("sfsf0");
+               this.allowLogin();
             }    
         });  
     }
