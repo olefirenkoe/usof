@@ -12,7 +12,8 @@ class Header extends React.Component {
             disabled: false,
             profilImage: null,
             login: null,
-            reputation: null
+            reputation: null,
+            profilUrl: null
         };
 
         this.handleClick = this.handleClick.bind(this);
@@ -43,7 +44,8 @@ class Header extends React.Component {
             status: false,
             profilImage: obj.profile_image,
             login: obj.display_name,
-            reputation: obj.reputation
+            reputation: obj.reputation,
+            profilUrl: obj.link
         });
         this.renderLogin();
     }
@@ -56,7 +58,7 @@ class Header extends React.Component {
         }else {
             return (
                 <div className="profile">
-                    <img id='userImg' src={this.state.profilImage}/>
+                    <a href={this.state.profilUrl}><img id='userImg' src={this.state.profilImage}/></a>
                     <span id="userLogin">{this.state.login}</span>
                     <span id="userReputation"><b>Reputation:</b> {this.state.reputation}</span>
                 </div>

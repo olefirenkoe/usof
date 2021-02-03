@@ -87,6 +87,10 @@ a:hover {
     right: 100px;
 }
 
+.profile a {
+    margin: 0;
+}
+
 #userImg {
     width: 30px; 
     grid-area: img;
