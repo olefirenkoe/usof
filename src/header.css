@@ -48,3 +48,57 @@ button:active {
 button:hover {
     background: #0078cd;
 }
+
+input[type='search']{
+    background: #292929;
+    width: 500px;
+    padding: .6em .7em;
+    position: absolute;
+    left: 200px;
+    top: 7px;
+    border: 1px solid grey;
+    border-radius: 4px;
+    color: rgb(197, 196, 196);
+    outline-offset: 0px;
+}
+nav {
+    position: absolute;
+    top: 12px;
+    left: 800px;
+}
+
+a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: rgb(197, 196, 196);
+}
+
+a:hover {
+    color: rgb(248, 248, 248);;
+}
+
+.profile {
+    display: grid;
+    grid-template-columns: 35px 100px;
+    grid-template-rows: 15px 15px;
+    grid-template-areas: "img login" "img rep";
+    position: absolute;
+    top: 10px;
+    right: 100px;
+}
+
+#userImg {
+    width: 30px; 
+    grid-area: img;
+}
+
+ #userLogin {
+    grid-area: login;
+    font-size: 10px;
+ 
+}
+
+#userReputation {
+    grid-area: rep;
+    font-size: 10px;
+}
