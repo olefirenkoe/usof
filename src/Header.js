@@ -91,9 +91,9 @@ class Header extends React.Component {
                 <span className="label">stack <b>usof</b></span>
                 <input type='search' placeholder='Search...'/>
                 <nav>
-                <a href="main">Main</a>
-                <a href="Users">Users</a>
-                <a href="Tags">Tags</a>
+                <a href="/">Main</a>
+                <a href="/users">Users</a>
+                <a href="/tags">Tags</a>
                 </nav>
                 {this.renderLogin()}
             </header>
