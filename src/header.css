@@ -67,6 +67,11 @@ nav {
     left: 800px;
 }
 
+li {
+    list-style-type: none;
+    display: inline; 
+}
+
 a {
     margin-left: 20px;
     text-decoration: none;

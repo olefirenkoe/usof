@@ -1,3 +1,14 @@
 body {
   background: #292929;
 }
+
+h1 {
+  margin-top: 60px;
+  color: antiquewhite;
+}
+
+.question {
+  width: 500px;
+  margin: 10px;
+  background: aquamarine;
+}

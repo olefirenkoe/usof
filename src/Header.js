@@ -2,6 +2,7 @@ import React from 'react';
 import logo from '../src/logo.png';
 import '../src/header.css';
 
+
 let tokens = null;
 
 class Header extends React.Component {
@@ -58,7 +59,7 @@ class Header extends React.Component {
         }else {
             return (
                 <div className="profile">
-                    <a href={this.state.profilUrl}><img id='userImg' src={this.state.profilImage}/></a>
+                    <a href='/user-profile'><img id='userImg' alt='profilPhoto' src={this.state.profilImage}/></a>
                     <span id="userLogin">{this.state.login}</span>
                     <span id="userReputation"><b>Reputation:</b> {this.state.reputation}</span>
                 </div>
@@ -66,17 +67,17 @@ class Header extends React.Component {
         }
     }
 
-    componentDidMount() {
-        window.SE.init({
-            clientId: 19555, // Здесь мы ставим выданный нам clientId
-            key: 'qBt3pH)yY2*kx96ogUORkA((', // А здесь соответственно key
-            channelUrl: 'https://olefirenkoe.github.io/blank.html', // Особое внимание стоит уделить этому полю. Здесь нужно указать домен, на котором хостится и крутится приложение
-            complete: () => {
-                console.log("Ready for auth!");
-                this.allowLogin();
-            }    
-        });  
-    }
+    // componentDidMount() {
+    //     window.SE.init({
+    //         clientId: 19555, // Здесь мы ставим выданный нам clientId
+    //         key: 'qBt3pH)yY2*kx96ogUORkA((', // А здесь соответственно key
+    //         channelUrl: 'https://olefirenkoe.github.io/blank.html', // Особое внимание стоит уделить этому полю. Здесь нужно указать домен, на котором хостится и крутится приложение
+    //         complete: () => {
+    //             console.log("Ready for auth!");
+    //             this.allowLogin();
+    //         }    
+    //     });  
+    // }
 
     allowLogin() {
         this.setState({
@@ -85,15 +86,15 @@ class Header extends React.Component {
     }
     
     render() {
-        return(
+        return (
             <header>
                 <img src={logo} className="logo" alt="logo"/>
                 <span className="label">stack <b>usof</b></span>
                 <input type='search' placeholder='Search...'/>
                 <nav>
-                <a href="/">Main</a>
-                <a href="/users">Users</a>
-                <a href="/tags">Tags</a>
+                    <li><a href="/">Main</a></li>
+                    <li><a href="/users">Users</a></li>
+                    <li><a href="/tags">Tags</a></li> 
                 </nav>
                 {this.renderLogin()}
             </header>
