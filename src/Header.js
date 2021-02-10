@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from '../src/logo.png';
 import '../src/header.css';
+import { NavLink } from 'react-router-dom';
 
 
 let tokens = null;
@@ -10,7 +11,7 @@ class Header extends React.Component {
         super(props);
         this.state = {
             status: true,
-            disabled: false,
+            disabled: true,
             profilImage: null,
             login: null,
             reputation: null,
@@ -67,17 +68,17 @@ class Header extends React.Component {
         }
     }
 
-    // componentDidMount() {
-    //     window.SE.init({
-    //         clientId: 19555, // Здесь мы ставим выданный нам clientId
-    //         key: 'qBt3pH)yY2*kx96ogUORkA((', // А здесь соответственно key
-    //         channelUrl: 'https://olefirenkoe.github.io/blank.html', // Особое внимание стоит уделить этому полю. Здесь нужно указать домен, на котором хостится и крутится приложение
-    //         complete: () => {
-    //             console.log("Ready for auth!");
-    //             this.allowLogin();
-    //         }    
-    //     });  
-    // }
+    componentDidMount() {
+        window.SE.init({
+            clientId: 19555, // Здесь мы ставим выданный нам clientId
+            key: 'qBt3pH)yY2*kx96ogUORkA((', // А здесь соответственно key
+            channelUrl: 'https://olefirenkoe.github.io/blank.html', // Особое внимание стоит уделить этому полю. Здесь нужно указать домен, на котором хостится и крутится приложение
+            complete: () => {
+                console.log("Ready for auth!");
+                this.allowLogin();
+            }    
+        });  
+    }
 
     allowLogin() {
         this.setState({
@@ -92,9 +93,9 @@ class Header extends React.Component {
                 <span className="label">stack <b>usof</b></span>
                 <input type='search' placeholder='Search...'/>
                 <nav>
-                    <li><a href="/">Main</a></li>
-                    <li><a href="/users">Users</a></li>
-                    <li><a href="/tags">Tags</a></li> 
+                    <li><NavLink to="/">Main</NavLink></li>
+                    <li><NavLink to="/users">Users</NavLink></li>
+                    <li><NavLink to="/tags">Tags</NavLink></li> 
                 </nav>
                 {this.renderLogin()}
             </header>

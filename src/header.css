@@ -26,7 +26,7 @@ header {
     top: 20px;
 }
 
-button {
+#log {
     position: absolute;
     right: 20px;
     top: 8px;
@@ -41,11 +41,11 @@ button {
     outline: none;
 }
 
-button:active {
+#log:active {
    margin-top: 1px;
 }
 
-button:hover {
+#log:hover {
     background: #0078cd;
 }
 

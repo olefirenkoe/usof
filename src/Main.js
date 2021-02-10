@@ -2,68 +2,36 @@ import React from 'react';
 import '../src/main.css';
 import Filter from '../src/questions/Filter';
 
-// let toDate = new Date().getTime();
-// let fromDate = toDate - 5 * 24 * 60 * 60 * 1000;
+let toDate = Math.round(new Date().getTime()/1000);
+let fromDate = toDate - 43200;
 
-// fetch(`https://api.stackexchange.com/2.2/questions?fromdate=1612137600&todate=1612569600&order=desc&sort=votes&site=stackoverflow`)
-//     .then(function(resp) {return resp.json()}).then(function(data) {console.log(data)})
-
-
-
-// console.log(toDate);
-// console.log(fromDate);
-
-// console.log(new Date(1293840000))
+console.log(toDate);
+console.log(fromDate);
 
 class Main extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            fetch: false,
-            resultFetch: null
+            filterMethod: null
         }
     }
 
-    componentDidMount() {
-       
-       let getQuestion = async () => {
-            let response = await fetch("https://api.stackexchange.com/2.2/questions?page=1&pagesize=50&fromdate=1612137600&todate=1612569600&order=desc&min=1&max=600&sort=votes&site=stackoverflow");
-            let questions = await response.json();
-
-            console.log(questions.error_id);
-            if (questions.error_id === undefined) {
-                this.preferQuestion(questions.items);
-            } else {
-                alert("Please, reload page.");
-            }
-            
-        }
-        getQuestion();
+    updateData = (value) => {
+        this.setState({ filterMethod: value })
     }
-
-    preferQuestion(obj) {   
-        this.setState({
-            fetch: true,
-            resultFetch: obj
-        });
-        this.renderQuestion();
-    }
-
-    renderQuestion() {
-        if (this.state.fetch === true) {
-            return(<Question result={this.state.resultFetch}/>);
-        }else {
-            return;
-        }
-    }
-
+    
     render() {
         return (
             <div className='mainContainer'>
-                <Filter/>
+                <div className='filters'>
+                    <h1 className="filterH1">Filters</h1>
+                    <Filter updateData={this.updateData} nameFilter="activity"/>
+                    <Filter updateData={this.updateData} nameFilter="votes"/>
+                    <Filter updateData={this.updateData} nameFilter="creation"/>
+                </div>
                 <div className='questionDiv'>
                     <h1>Top Questions</h1>
-                    {this.renderQuestion()} 
+                    <Question filterMethod={this.state.filterMethod}/>
                 </div> 
             </div>
         )
@@ -72,27 +40,80 @@ class Main extends React.Component {
 
 export default Main;
 
-function Question(props) {
-    console.log(props.result)
-    return (
-        <>
-           {props.result.map((item) => 
-            <div  key={item.question_id} className='question'>
-                <Title title={item.title}/>
-                <div className='allStats'>
-                    <Statistic score={item.score} value="votes"/>
-                    <Statistic score={item.answer_count} answered={item.is_answered} value="answers"/>
-                    <Statistic score={item.view_count} value="views"/>
-                </div>
-                <div className='tagsAndOwner'>
-                    <Tags tags={item.tags}/>
-                    <QuestionOwner name={item.owner.display_name} reputation={item.owner.reputation} time={dataFormated(item.creation_date*1000)}/>
-                </div>
-               
-            </div>)}
-        </>
-    )
 
+class Question extends React.Component {
+    constructor (props){
+        super(props);
+       this.state = {
+            filterMethod: this.props.filterMethod,
+            // url: (this.props.filterMethod) ? `https://api.stackexchange.com/2.2/questions?pagesize=50&fromdate=${fromDate}&todate=${toDate}&tagged=javascript; react&site=stackoverflow${this.props.filterMethod}`
+            //         : `https://api.stackexchange.com/2.2/questions?pagesize=50&fromdate=${fromDate}&todate=${toDate}&tagged=javascript; react&site=stackoverflow`,
+            url: `https://api.stackexchange.com/2.2/questions?pagesize=50&fromdate=${fromDate}&todate=${toDate}&tagged=javascript&site=stackoverflow`, 
+            resultApi: null
+       }
+    }
+
+    componentDidMount() {
+        console.log(this.props.filterMethod);
+        let getQuestion = async () => {
+            let response = await fetch(`${this.state.url}`);
+            let questions = await response.json();
+ 
+            if (questions.error_id === undefined) {
+                this.setState({
+                    resultApi: questions.items
+                    });
+            } else {
+                alert("Please, reload page.");
+            }
+             
+        }
+        getQuestion();
+    }
+
+    render() {
+
+        // let getQuestion = async () => {
+        //     let response = await fetch(`${this.state.url}`);
+        //     let questions = await response.json();
+ 
+        //     if (questions.error_id === undefined) {
+        //         this.setState({
+        //             resultApi: questions.items
+        //             });
+        //     } else {
+        //         alert("Please, reload page.");
+        //     }
+             
+        // }
+        // getQuestion();
+
+        if (this.state.resultApi === null) {
+            return (
+                <h1>Please wait...</h1>
+            )
+        }
+            return (
+                <>
+                    {this.state.resultApi.map((item) => 
+                        <div  key={item.question_id} className='question'>
+                            <Title title={item.title}/>
+                            <div className='allStats'>
+                                <Statistic score={item.score} value="votes"/>
+                                <Statistic score={item.answer_count} answered={item.is_answered} value="answers"/>
+                                 <Statistic score={item.view_count} value="views"/>
+                            </div>
+                            <div className='tagsAndOwner'>
+                                <Tags tags={item.tags}/>
+                                <QuestionOwner name={item.owner.display_name} reputation={item.owner.reputation} time={dataFormated(item.creation_date*1000)}/>
+                            </div>
+                        </div>
+                    )}
+                </>
+            )
+        
+        
+    }
 }
 
 function Title(props) {  
@@ -142,4 +163,3 @@ function dataFormated (date) {
     return (`${day}.${month}.${year} at ${hours}:${minutes}`);
 }
 
-console.log(dataFormated(new Date(1612186345*1000)))

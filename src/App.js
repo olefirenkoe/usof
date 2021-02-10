@@ -4,21 +4,22 @@ import Users from '../src/Users';
 import Tags from '../src/Tags';
 import User_Profile from '../src/User_Profile';
 
-import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import { BrowserRouter, Switch, Route} from 'react-router-dom';
 
 function App() {
   return (
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
     <div className="App">
      <Header/>
-     <Router>
-       <Switch>
+       {/* <Switch> */}
          <Route exact path='/' component={Main}/>
          <Route path='/users' component={Users}/>
          <Route path='/tags' component={Tags}/>
          <Route path='/user-profile' component={User_Profile}/>
-       </Switch>
-     </Router>
-    </div>
+       {/* </Switch> */}
+       </div>
+     </BrowserRouter>
+    
   );
 }
 
