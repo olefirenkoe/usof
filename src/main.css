@@ -27,6 +27,7 @@ h1 {
 }
 
 .question {
+    position: relative;
     width: 750px;
     height: max-content;
     background: #363636;
@@ -106,13 +107,25 @@ h1 {
     color: #9fa6ad;
     font-family: 'Roboto Condensed', sans-serif;
     font-size: 13px;
-    /* text-align: end; */
     margin-top: 10px;
     margin-left: auto;
 }
 
+.questionOwner > span {
+    margin-left: 2px;
+}
+
 #userName {
     color: #378ad3;
+    cursor: pointer;
+}
+
+.ownerimg {
+    width: 30px; 
+   position: absolute;
+   top: 5px;
+   right: 5px;
+   z-index: 10;
 }
 
 /* filter block */

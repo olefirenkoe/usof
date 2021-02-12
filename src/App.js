@@ -4,7 +4,7 @@ import Users from '../src/Users';
 import Tags from '../src/Tags';
 import User_Profile from '../src/User_Profile';
 
-import { BrowserRouter, Switch, Route} from 'react-router-dom';
+import { BrowserRouter, Route} from 'react-router-dom';
 
 function App() {
   return (
