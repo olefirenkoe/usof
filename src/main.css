@@ -2,6 +2,8 @@
 /* @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap'); */
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
 
+
+
 h1 {
     color: #e7e8eb;
     font-weight: 400;
@@ -11,10 +13,20 @@ h1 {
     margin-left: 20px;
 }
 
+body {
+    min-height: 100vh;
+    margin: 0;
+  
+    display: flex;
+    flex-direction: column;
+  }
+
 .mainContainer {
     display: grid;
     grid-template-columns: 15% 55% 30%;
     grid-template-areas: "filters questionDiv .";
+    min-height: calc(100vh - 70px);
+    margin-bottom: 20px;
 }
 
 .questionDiv {
@@ -130,6 +142,10 @@ h1 {
 
 /* filter block */
 
+.filters {
+    margin-bottom: 50px;
+}
+
 .filterH1 {
     margin-left: 40px;
 }
@@ -178,4 +194,16 @@ h1 {
 .ascDescFilters > button:hover {
     color: white;
     border: 1px solid white;
+}
+
+/* footer*/
+
+
+footer {
+    display: block;
+    margin-bottom: -200px;
+    background: #363636;
+    color: #9fa6ad;
+    font-family: 'Roboto Condensed', sans-serif;
+    display: flex;
 }

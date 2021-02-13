@@ -29,7 +29,7 @@ class Header extends React.Component {
             success: async (data) => {
                 console.log('I got access'); 
                 tokens = data;
-
+                console.log(tokens.accessToken)
                 let response = await fetch(`https://api.stackexchange.com/2.2/me?site=stackoverflow&key=qBt3pH)yY2*kx96ogUORkA((&access_token=${tokens.accessToken}`);
                 let user = await response.json();
 
@@ -68,17 +68,17 @@ class Header extends React.Component {
         }
     }
 
-    // componentDidMount() {
-    //     window.SE.init({
-    //         clientId: 19555, // Здесь мы ставим выданный нам clientId
-    //         key: 'qBt3pH)yY2*kx96ogUORkA((', // А здесь соответственно key
-    //         channelUrl: 'https://olefirenkoe.github.io/blank.html', // Особое внимание стоит уделить этому полю. Здесь нужно указать домен, на котором хостится и крутится приложение
-    //         complete: () => {
-    //             console.log("Ready for auth!");
-    //             this.allowLogin();
-    //         }    
-    //     });  
-    // }
+    componentDidMount() {
+        window.SE.init({
+            clientId: 19555, // Здесь мы ставим выданный нам clientId
+            key: 'qBt3pH)yY2*kx96ogUORkA((', // А здесь соответственно key
+            channelUrl: 'https://olefirenkoe.github.io/blank.html', // Особое внимание стоит уделить этому полю. Здесь нужно указать домен, на котором хостится и крутится приложение
+            complete: () => {
+                console.log("Ready for auth!");
+                this.allowLogin();
+            }    
+        });  
+    }
 
     allowLogin() {
         this.setState({

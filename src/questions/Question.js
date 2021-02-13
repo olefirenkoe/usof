@@ -29,7 +29,7 @@ class Question extends React.Component {
     }
 
     getQuestion() {
-        axios.get(`https://api.stackexchange.com/2.2/questions?pagesize=50&fromdate=${fromDate}&todate=${toDate}&tagged=javascript; react&site=stackoverflow${this.props.filterMethod}`)
+        axios.get(`https://api.stackexchange.com/2.2/questions?pagesize=50&fromdate=${fromDate}&todate=${toDate}&tagged=javascript; react&site=stackoverflow&key=${process.env.REACT_APP_KEY}${this.props.filterMethod}`)
         .then(response => {
             this.setState({
                 resultApi: response.data.items});
