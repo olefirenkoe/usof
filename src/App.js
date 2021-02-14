@@ -7,6 +7,7 @@ import Footer from '../src/Footer';
 import UserId from '../src/users/UserId';
 import { BrowserRouter, Route} from 'react-router-dom';
 import OneTag from './tags/OneTag';
+import QuestionId from './questions/QuestionId';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
     <div className="App">
      <Header/>
          <Route exact path='/' component={Main}/>
+         <Route exact path='/questions/:questionId' component={QuestionId}/>
          <Route exact path='/users' component={Users}/>
          <Route path='/users/:userID' component={UserId}/>
          <Route exact path='/tags' component={Tags}/>

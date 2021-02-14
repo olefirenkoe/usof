@@ -46,7 +46,7 @@ class Question extends React.Component {
             <>
                 {this.state.resultApi.map((item) =>  
                     <div  key={item.question_id} className='question'>
-                        <Title title={item.title}/>
+                        <Title title={item.title} id={item.question_id}/>
                         <div className='allStats'>
                             <Statistic score={item.score} value="votes"/>
                             <Statistic score={item.answer_count} answered={item.is_answered} value="answers"/>
@@ -54,7 +54,7 @@ class Question extends React.Component {
                         </div>
                         <div className='tagsAndOwner'>
                             <Tags tags={item.tags}/>
-                            <QuestionOwner name={item.owner.display_name} img={item.owner.profile_image} reputation={item.owner.reputation} time={dataFormated(item.creation_date*1000)}/>
+                            <QuestionOwner name={item.owner.display_name} id={item.owner.user_id} img={item.owner.profile_image} reputation={item.owner.reputation} time={dataFormated(item.creation_date*1000)}/>
                         </div>
                     </div>
                 )}

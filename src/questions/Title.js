@@ -1,6 +1,8 @@
+import { NavLink } from "react-router-dom";
+
 function Title(props) {  
     return (
-        <h3 className="title">{props.title}</h3>
+        <NavLink to={`/questions/${props.id}`} className="title">{props.title}</NavLink>
     )
 }
 

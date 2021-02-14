@@ -1,0 +1,93 @@
+.questionInfo {
+    width: 900px;
+    /* background: pink; */
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+
+.questionInfo > h1 {
+    font-weight: 600;
+}
+
+.questionBody {
+    color: rgb(197, 196, 196);
+}
+
+pre {
+    background: black;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.questionTags {
+    display: flex;
+}
+
+.tagItem {
+    padding: 10px;
+}
+
+.owner {
+    color: rgb(197, 196, 196);
+    padding: 5px;
+    width: 200px;
+    background: #3c4951;
+    font-family: 'Roboto Condensed', sans-serif;
+    border-radius: 3px;
+    margin-left: auto;
+    margin-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.owner > p {
+    margin: 0;
+    font-size: 14px;
+    margin-bottom: 2px;
+}
+
+.ownerImg {
+    width: 40px;
+    border-radius: 2px;
+    float: left;
+    margin-right: 5px;
+}
+
+.commentItem {
+    color: rgb(197, 196, 196);
+    padding: 10px;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 15px;
+    border-bottom: 1px solid #494949;
+    border-top: 1px solid #494949;
+    margin-top: -1px;
+    position: relative;
+}
+
+.commentItem > div > code {
+    background: #3e4143;
+    padding: 2px;
+}
+
+.commentItem > div {
+    width: 780px;
+}
+
+.commentItem > a {
+    position: absolute;
+    right: 10px;
+    bottom: 5px;
+}
+
+.emptyComments {
+    color: rgb(197, 196, 196);
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 15px;
+}
+
+h2 {
+    color: #e7e8eb;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+}
