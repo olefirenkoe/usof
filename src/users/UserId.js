@@ -56,5 +56,4 @@ class UserInfo extends React.Component {
     }
 }
 
-{/* <span dangerouslySetInnerHTML={{__html:about}}/> */}
 export default UserId;
