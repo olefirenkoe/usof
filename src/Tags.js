@@ -20,7 +20,7 @@ class Tags extends React.Component {
     
     render() {
         return (
-            <div className='mainContainer'>
+            <div className='mainTagContainer'>
                 <div className='filters'>
                     <h1 className="filterH1">Filters</h1>
                     <Filter updateData={this.updateData} nameFilter="popular"/>

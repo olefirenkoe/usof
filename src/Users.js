@@ -18,18 +18,18 @@ class Users extends React.Component {
     
     render() {
         return (
-            <div className='mainContainer'>
+            <div className='mainUserContainer'>
                 <div className='filters'>
                     <h1 className="filterH1">Filters</h1>
                     <Filter updateData={this.updateData} nameFilter="reputation"/>
                     <Filter updateData={this.updateData} nameFilter="creation"/>
-                    <Filter updateData={this.updateData} nameFilter="names"/>
+                    <Filter updateData={this.updateData} nameFilter="name"/>
                 </div>
                 <div>
                     <h1>Users</h1>
-                <div className='usersDiv'> 
-                    <GetUsers filterMethod={this.state.filterMethod}/>
-                </div>
+                    <div className='usersDiv'> 
+                        <GetUsers filterMethod={this.state.filterMethod}/>
+                    </div>
                 </div> 
             </div>
         )

@@ -29,8 +29,6 @@ class UserInfo extends React.Component {
         });
     }
 
-
- 
     render() {
     
     if (this.state.resultApi === null) {
@@ -42,14 +40,18 @@ class UserInfo extends React.Component {
         <>
             {this.state.resultApi.map((user) => 
             <div key={user.user_id} className='mainUser'>
-                <h1 className="oneUserName">{user.display_name}</h1><br/>
-                <img className='bigUserImg' src={user.profile_image} alt="imgUser"/>
-                <div dangerouslySetInnerHTML={{__html:user.about_me}} className="aboutUser"></div>
-                <div className="badgesContainer oneUserBadges">
-                    <div className="badgesItem"><div className="badge" id="gold"></div>{user.badge_counts.gold}</div>
-                    <div className="badgesItem"><div className="badge" id="silver"></div>{user.badge_counts.silver}</div>
-                    <div className="badgesItem"><div className="badge" id="bronze"></div>{user.badge_counts.bronze}</div>
+                <h1 className="oneUserName">{user.display_name}</h1>
+                <div className="userLocation">Location: {user.location}</div>
+                <div className="imgAndBadges">
+                    <img className='bigUserImg' src={user.profile_image} alt="imgUser"/>
+                    <div className="badges">
+                        <div className="badgesItem"><div className="badge" id="gold"></div>{user.badge_counts.gold}</div>
+                        <div className="badgesItem"><div className="badge" id="silver"></div>{user.badge_counts.silver}</div>
+                        <div className="badgesItem"><div className="badge" id="bronze"></div>{user.badge_counts.bronze}</div>
+                    </div>
                 </div>
+                <div dangerouslySetInnerHTML={{__html:user.about_me}} className="aboutUser"></div>
+                
             </div>)}
         </>
         )
