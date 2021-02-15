@@ -88,7 +88,7 @@ class GetTags extends React.Component {
     }
 
     componentDidMount() {
-        axios.get(`https://api.stackexchange.com/2.2/users/${this.props.id}/tags?order=desc&sort=popular&site=stackoverflow&key=${process.env.REACT_APP_KEY}`)
+        axios.get(`https://api.stackexchange.com/2.2/users/${this.props.id}/top-tags?site=stackoverflow&key=${process.env.REACT_APP_KEY}`)
         .then(response => {
             this.setState({
                 resultApi: response.data.items});
@@ -103,9 +103,8 @@ class GetTags extends React.Component {
         }
         return (
             <>
-                {this.state.resultApi.slice(0, 3).map((tags) =>  
-                  <span className="tags" key={tags.name}>{tags.name}</span>
-                   
+                {this.state.resultApi.slice(0, 3).map((tags, index) =>  
+                  <NavLink to={`/tags/${tags.tag_name}`} key={index} className="tags">{tags.tag_name}</NavLink>
                 )}    
             </>
         )

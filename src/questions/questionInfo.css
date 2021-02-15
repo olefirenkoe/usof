@@ -3,6 +3,7 @@
     /* background: pink; */
     margin: 0 auto;
     margin-bottom: 20px;
+    position: relative;
 }
 
 .questionInfo > h1 {
@@ -13,10 +14,35 @@
     color: rgb(197, 196, 196);
 }
 
+.questionBody > p > a > img {
+    max-width: 700px;
+}
+
+.questionScore {
+    display: flex;
+    flex-direction: column;
+    width: 30px;
+    font-family: 'Roboto Condensed', sans-serif;
+    position: absolute;
+    left: -30px;
+}
+
+.questionScore > span {
+    width: 20px;
+    text-align: center;
+    margin: 10px 0 10px 0;
+    font-size: 25px;
+    color: rgb(197, 196, 196);
+}
+
+
+
 pre {
     background: black;
     padding: 10px;
     border-radius: 8px;
+    max-height: 500px;
+    overflow: auto;
 }
 
 .questionTags {
@@ -90,4 +116,36 @@ h2 {
     font-family: 'Roboto Condensed', sans-serif;
     font-weight: 400;
     font-size: 20px;
+}
+
+.commentItem > .owner {
+    width: 200px;
+}
+
+.answerScore {
+    display: flex;
+    flex-direction: column;
+    width: 30px;
+    font-family: 'Roboto Condensed', sans-serif;
+    position: absolute;
+    left: -30px;
+}
+
+.answerScore > span {
+    width: 20px;
+    text-align: center;
+    margin: 10px 0 10px 0;
+    font-size: 25px;
+}
+
+.vote {
+    width: 20px;
+    cursor: pointer;
+}
+
+.accepted {
+    width: 35px;
+    position: absolute;
+    top: 20px;
+    left: -40px;
 }

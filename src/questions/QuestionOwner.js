@@ -20,10 +20,7 @@ class QuestionOwner extends React.Component {
         return (
             <div className='questionOwner'>
                 asked {this.props.time} 
-                {/* <span id='userName' onMouseOver={this.preview} onMouseOut={this.preview}>
-                    {this.props.name} 
-                </span> */}
-                <NavLink to={`/users/${this.props.id}`} className="userName">{this.props.name}</NavLink>
+                <NavLink to={`/users/${this.props.id}`} onMouseOver={this.preview} onMouseOut={this.preview} className="userName">{this.props.name}</NavLink>
                 {(this.state.showImg) ? <img className="ownerimg" src={(this.props.img)} alt="userimg"/> : null} 
                  <span>
                     <b>{(this.props.reputation > 9999) ? `${(this.props.reputation/1000).toFixed(1)}K` : this.props.reputation}</b>

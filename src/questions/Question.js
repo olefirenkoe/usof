@@ -11,9 +11,7 @@ let fromDate = toDate - 43200;
 class Question extends React.Component {
     constructor (props){
         super(props);
-       this.state = {
-            filterMethod: this.props.filterMethod,
-            url:  `https://api.stackexchange.com/2.2/questions?pagesize=50&fromdate=${fromDate}&todate=${toDate}&tagged=javascript; react&site=stackoverflow${this.props.filterMethod}`,       
+       this.state = {     
             resultApi: null
        }
     }
@@ -23,13 +21,13 @@ class Question extends React.Component {
     }
 
     componentDidUpdate(prevProps) {
-        if(this.props.filterMethod !== prevProps.filterMethod) {
+        if((this.props.filterMethod !== prevProps.filterMethod) || (this.props.tagged !== prevProps.tagged)) {
             this.getQuestion();
         }
     }
 
     getQuestion() {
-        axios.get(`https://api.stackexchange.com/2.2/questions?pagesize=50&fromdate=${fromDate}&todate=${toDate}&tagged=javascript; react&site=stackoverflow&key=${process.env.REACT_APP_KEY}${this.props.filterMethod}`)
+        axios.get(`https://api.stackexchange.com/2.2/questions?pagesize=50&fromdate=${fromDate}&todate=${toDate}&tagged=${this.props.tagged}&site=stackoverflow&key=${process.env.REACT_APP_KEY}${this.props.filterMethod}`)
         .then(response => {
             this.setState({
                 resultApi: response.data.items});

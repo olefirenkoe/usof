@@ -1,7 +1,9 @@
+import { NavLink } from 'react-router-dom';
+
 function Tags(props) {
     return (
         <>
-            {props.tags.map((item) => <div className="tagItem" key={item}>{item}</div>)}
+            {props.tags.map((item, index) => <NavLink to={`/tags/${item}`} key={index} className="tagItem">{item}</NavLink>)}
         </>
     )
 }

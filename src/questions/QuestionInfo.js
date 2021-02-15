@@ -4,6 +4,8 @@ import './questionInfo.css';
 import { NavLink } from 'react-router-dom';
 import Comments from './Comments';
 import Answers from './Answers';
+import upVote from '../../src/up_vote.png';
+import downVote from '../../src/down_vote.png';
 
 class QuestionInfo extends React.Component {
     constructor(props) {
@@ -32,6 +34,11 @@ class QuestionInfo extends React.Component {
         return (
             <div className="questionInfo">
                <h1>{this.state.resultApi.title}</h1>
+               <div className="questionScore">
+                    <img className="vote" src={upVote} alt="upVote"/>
+                    <span className="scoreCount">{this.state.resultApi.score}</span>  
+                    <img className="vote" src={downVote} alt="downVote"/>                                    
+               </div>
                <div className="questionBody" dangerouslySetInnerHTML={{__html:this.state.resultApi.body}}></div>
                <div className="questionTags">{this.state.resultApi.tags.map((tag) => <NavLink to={`/tags/${tag}`} key={tag} className="tagItem">{tag}</NavLink>)}</div>
                <div className="owner">

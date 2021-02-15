@@ -27,7 +27,7 @@ class Main extends React.Component {
                 </div>
                 <div className='questionDiv'>
                     <h1>Top Questions</h1>
-                    <Question filterMethod={this.state.filterMethod}/>
+                    <Question filterMethod={this.state.filterMethod} tagged="javascript"/>
                 </div> 
             </div>
         )
