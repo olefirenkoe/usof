@@ -279,3 +279,42 @@ footer {
         grid-template-columns: 120px 200px;
     }
 }
+
+@media screen and (max-width: 480px) {
+    h1 {
+      margin-bottom: 0;
+      margin-top: 0;
+    }
+
+    .mainContainer {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: auto auto;
+    grid-template-areas: "filters" "questionDiv";
+    }
+
+    .filters {
+        margin-top: 50px;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 0;
+    }
+
+    .ascDescFilters {
+        width: 100px;
+        /* align-self: flex-start;
+        justify-self: flex-end; */
+      
+        
+    }
+    
+    .ascDescFilters > button {
+        font-size: 12px;
+        margin: 0;
+        width: 100%;
+    }
+
+    .question {
+      width: 100%;
+    }
+}
