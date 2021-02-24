@@ -100,6 +100,7 @@ class Header extends React.Component {
                     <li><NavLink to="/">Main</NavLink></li>
                     <li><NavLink to="/users">Users</NavLink></li>
                     <li><NavLink to="/tags">Tags</NavLink></li> 
+                    <li><NavLink to="/getdata">Getdata</NavLink></li>
                 </nav>
                 {this.renderLogin()}
             </header>
