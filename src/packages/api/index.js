@@ -1,6 +1,5 @@
-import * as questions from './rest/questions';
-
+import * as questions from "./rest/questions";
 
 export default {
-    questions     
-}
+  questions
+};

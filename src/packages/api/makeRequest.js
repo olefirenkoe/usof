@@ -1,27 +1,17 @@
-import axios from 'axios';
-
-// const makeRequest = ({url, data}) => {
-//    return axios.get(url)
-//     .then(response => {
-//         return response.data.items;
-//         // return 2;
-//     })
-// // return 2;
-// };
-// export default makeRequest;
+import axios from "axios";
 
 export default ({
-    url = '/',
-    method = 'get',
-    params = {},
-    data = {},
-    headers = {}
+  url = "/",
+  method = "get",
+  params = {},
+  data = {},
+  headers = {}
 }) => {
-    return axios({
-        url,
-        method,
-        headers,
-        params,
-        data
-    });
+  return axios({
+    url,
+    method,
+    headers,
+    params,
+    data
+  });
 };
