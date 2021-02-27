@@ -1,34 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import dataFormated from '../../src/dataFormated';
 
-class QuestionOwner extends React.Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            showImg: false
-        }
-        this.preview = this.preview.bind(this);
-    }
+function QuestionOwner(props) {
+    const [showImg, setShowImg] = useState(false);
+    const data = props.data;
 
-    preview() {
-        this.setState(state => ({
-            showImg: !state.showImg
-        }));
-    }
+    return (
+        <div className='questionOwner'>
+            asked {dataFormated(data.creation_date*1000)} 
+            <NavLink to={`/users/${data.owner.user_id}`} onMouseOver={() => setShowImg(!showImg)} onMouseOut={() => setShowImg(!showImg)} className="userName">
+                {data.owner.display_name}
+            </NavLink>
 
-    render(){
-        return (
-            <div className='questionOwner'>
-                asked {this.props.time} 
-                <NavLink to={`/users/${this.props.id}`} onMouseOver={this.preview} onMouseOut={this.preview} className="userName">{this.props.name}</NavLink>
-                {(this.state.showImg) ? <img className="ownerimg" src={(this.props.img)} alt="userimg"/> : null} 
-                 <span>
-                    <b>{(this.props.reputation > 9999) ? `${(this.props.reputation/1000).toFixed(1)}K` : this.props.reputation}</b>
-                </span>
-            </div>
-        )
-    }
-    
+            {(showImg) ? <img className="ownerimg" src={(data.owner.profile_image)} alt="userimg"/> : null} 
+            <span>
+                <b>{(data.owner.reputation > 9999) ? `${(data.owner.reputation/1000).toFixed(1)}K` : data.owner.reputation}</b>
+            </span>    
+        </div>
+    )
 }
-
 export default QuestionOwner;

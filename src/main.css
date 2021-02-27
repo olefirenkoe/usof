@@ -318,3 +318,35 @@ footer {
       width: 100%;
     }
 }
+
+.originalFilter {
+    display: flex;
+    color: #cecbcb;
+    border: 1px solid #cecbcb;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 13px;
+    width: max-content;
+    border-radius: 5px;
+    margin: 0 10px 10px auto;
+    
+}
+
+.originalFilter > div:not(:first-child) {
+    border-left: 1px solid #cecbcb;
+}
+
+.originalFilter > div {
+    padding: 8px;
+    cursor: pointer;
+}
+
+.originalFilter > div:hover {
+    background: rgb(119, 119, 119);
+}
+
+.originalFilter > div:first-child {
+    border-radius: 5px 0px 0px 5px;
+}
+.originalFilter > div:last-child {
+    border-radius: 0px 5px 5px 0px;
+}
