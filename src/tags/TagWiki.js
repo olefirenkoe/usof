@@ -1,37 +1,48 @@
 import React from 'react';
 import * as axios from 'axios';
+import {useEffect, useState} from 'react';
 
-class TagWiki extends React.Component {
-    constructor (props){
-        super(props);
-       this.state = {   
-            resultApi: null
-       }
-    }
+function TagWiki(props) {
+    const [error, setError] = useState(null);
+    const [isLoaded, setIsLoaded] = useState(false);
+    const [items, setItems] = useState();
+    let name = encodeURIComponent(props.name)
 
-    componentDidMount() {
-        let name = encodeURIComponent(this.props.name)
+    useEffect(() => {
+        console.log(1)
         axios.get(`https://api.stackexchange.com/2.2/tags/${name}/wikis?&site=stackoverflow&key=${process.env.REACT_APP_KEY}`)
-        .then(response => {
-            this.setState({
-                resultApi: response.data.items
-            });
-        }) 
-    }
-
-    render() {
-        if (this.state.resultApi === null) {
-            return (
-                <h3>Please wait...</h3>
-            )
-        }
-        return (
-            <>
-                <div className="tagWiki">
-                    {(this.state.resultApi[0].excerpt).match(/./g).length > 170 ? (this.state.resultApi[0].excerpt).substring(0, 170) + "..." : this.state.resultApi[0].excerpt}
-                </div>
-            </>
+            .then((result) => {
+                setItems(result.data.items[0]);
+                setIsLoaded(true);
+            }, 
+            (error) => {
+                setIsLoaded(true);
+                setError(error);
+            }
         )
+    }, [])
+
+    if (error) {
+        return <span>Something went wrong...</span>;
+    } else if (!isLoaded) {
+        return <span>Please, wait...</span>;
+    } else {
+        if ((items) && (items.excerpt)) { 
+            return (
+                <>
+                    <div className="tagWiki">
+                        {(items.excerpt).length > 170 ? (items.excerpt).substring(0, 170) + "..." : items.excerpt}
+                    </div>
+                </>
+            );
+        } else {
+            return (
+                <div className="tagWiki">
+                        no info
+                </div>
+            );
+        }
+        
     }
 }
 

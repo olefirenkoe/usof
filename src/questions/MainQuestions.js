@@ -1,14 +1,12 @@
 import {useEffect, useState} from 'react';
 import * as axios from 'axios';
-import Title from '../src/questions/Title';
-import Statistic from '../src/questions/Statistic';
-import Tags from '../src/questions/Tags';
-import QuestionOwner from '../src/questions/QuestionOwner';
+import Title from './Title';
+import Statistic from './Statistic';
+import Tags from './Tags';
+import QuestionOwner from './QuestionOwner';
+import './main.css';
 
-// let toDate = Math.round(new Date().getTime()/1000);
-// let fromDate = toDate - 43200;
-
-function GetData() {
+function MainQuestion() {
     const [error, setError] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
     const [items, setItems] = useState([]);
@@ -26,8 +24,6 @@ function GetData() {
             }
         )
     }, [filter])
-
-
 
     if (error) {
         return <h1>Something went wrong...</h1>;
@@ -63,8 +59,6 @@ function GetData() {
             </div>
         );
     }
- 
 }
 
-export default GetData;
-
+export default MainQuestion;

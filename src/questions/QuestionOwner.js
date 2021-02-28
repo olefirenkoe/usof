@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import dataFormated from '../../src/dataFormated';
+import dataFormated from '../packages/dataFormated';
 
 function QuestionOwner(props) {
     const [showImg, setShowImg] = useState(false);

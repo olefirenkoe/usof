@@ -1,9 +1,8 @@
 import React from 'react';
-import logo from '../src/logo.png';
-import '../src/header.css';
+import logo from '../images/logo.png';
+import './header.css';
 import { NavLink } from 'react-router-dom';
 import * as axios from 'axios';
-
 
 let tokens = null;
 
@@ -91,7 +90,7 @@ class Header extends React.Component {
         return (
             <header>
                 <div className="label">
-                    <img src={logo} className="logo" alt="logo"/>
+                    <NavLink to="/"><img src={logo} className="logo" alt="logo"/></NavLink>
                     <span>stack <b>usof</b></span>
                 </div>
                 
@@ -100,7 +99,6 @@ class Header extends React.Component {
                     <li><NavLink to="/">Main</NavLink></li>
                     <li><NavLink to="/users">Users</NavLink></li>
                     <li><NavLink to="/tags">Tags</NavLink></li> 
-                    <li><NavLink to="/getdata">Getdata</NavLink></li>
                 </nav>
                 {this.renderLogin()}
             </header>

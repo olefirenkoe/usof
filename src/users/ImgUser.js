@@ -1,29 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PreviewUser from './PreviewUser';
 
-class imgUser extends React.Component {
-    constructor (props){
-        super(props);
-       this.state = {
-            showPreview: false
-       }
-       this.preview = this.preview.bind(this);
-    }
+function ImgUser(props) {
+    const [showPreview, setShowPreview] = useState(false);
 
-    preview() {
-        this.setState(state => ({
-            showPreview: !state.showPreview
-        }));
-    }
-
-    render () {
-        return (
-            <>
-                <img src={this.props.user.profile_image} className="usersimgs" alt="imgUser" onMouseOver={this.preview} onMouseOut={this.preview}/>
-                {(this.state.showPreview) ? <PreviewUser user={this.props.user}/> : null}
-            </>
-        )
-    }
+    return (
+        <>
+            <img 
+                src={props.user.profile_image} 
+                className="usersimgs" alt="imgUser" 
+                onMouseOver={() => setShowPreview(!showPreview)} 
+                onMouseOut={() => setShowPreview(!showPreview)}
+            />
+            {(showPreview) ? <PreviewUser user={props.user}/> : null}
+        </>
+    )
 }
 
-export default imgUser;
+export default ImgUser;

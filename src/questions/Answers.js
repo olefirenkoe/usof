@@ -1,8 +1,9 @@
 import { NavLink } from 'react-router-dom';
-import upVote from '../../src/up_vote.png';
-import downVote from '../../src/down_vote.png';
-import accepted from '../../src/accepted.png';
+import upVote from '../images/up_vote.png';
+import downVote from '../images/down_vote.png';
+import accepted from '../images/accepted.png';
 import Comments from './Comments';
+import dataFormated from '../packages/dataFormated';
 
 function Answers(props) {
     return (
@@ -22,10 +23,7 @@ function Answers(props) {
                    <NavLink to={`/users/${answer.owner.user_id}`} className="userName">{answer.owner.display_name}</NavLink>
                    <p>{answer.owner.reputation}</p>
                </div>
-               
                    {(answer.comment_count) > 0 ? <Comments comments={answer.comments}/> : null}
-               
-
                </div> 
             )}
         </>
@@ -33,22 +31,3 @@ function Answers(props) {
 }
 
 export default Answers;
-
-function dataFormated (date) {
-    date = new Date(date)
-    let day = date.getDate(),
-        month = date.getMonth() + 1,
-        year = date.getFullYear(),
-        hours = date.getHours(),
-        minutes = date.getMinutes();
-
-    if (month < 10) {
-        month = `0${month}`;
-    }if (day < 10) {
-        day = `0${day}`;
-    }if (minutes < 10) {
-        minutes = `0${minutes}`;
-    }
-
-    return (`${day}.${month}.${year} at ${hours}:${minutes}`);
-}
