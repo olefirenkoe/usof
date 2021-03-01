@@ -31,8 +31,6 @@ function MainTags() {
     } else {
         return (
             <div className='mainContainer'>
-                <div className='filters'>   
-                </div>
                 <div className='questionDiv'>
                     <h1>Tags</h1>
                     <div className="originalFilter">
@@ -40,13 +38,15 @@ function MainTags() {
                         <div onClick={() => setFilter('&order=desc&sort=name')}>Name</div>
                         <div onClick={() => setFilter('&order=desc&sort=activity')}>Activity</div>
                     </div>
-                    {items.map((tag) =>  
-                        <div  key={tag.name} className='tagDiv'>
-                        <NavLink to={`/tags/${tag.name}`} className="tagItem">{tag.name}</NavLink>
-                        <TagWiki name={tag.name}/>
-                        <div className="tagCount">{tag.count} questions</div>
-                        </div> 
-                    )}  
+                    <div className="tagsContainer">
+                        {items.map((tag) =>  
+                            <div  key={tag.name} className='tagDiv'>
+                                <NavLink to={`/tags/${tag.name}`} className="tagItem">{tag.name}</NavLink>
+                                <TagWiki name={tag.name}/>
+                                <div className="tagCount">{tag.count} questions</div>
+                            </div> 
+                        )}  
+                    </div>
                 </div>       
             </div>
         );

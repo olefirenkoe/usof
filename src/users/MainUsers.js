@@ -3,7 +3,7 @@ import * as axios from 'axios';
 import ImgUser from './ImgUser';
 import { NavLink } from 'react-router-dom';
 import {useEffect, useState} from 'react';
-import GetTags from './GetTags';
+import GetUsersTags from './GetUsersTags';
 
 function MainUsers() {
     const [error, setError] = useState(null);
@@ -32,26 +32,26 @@ function MainUsers() {
     } else {
         return (
             <div className='mainContainer'>
-                <div className='filters'>   
-                </div>
-                <div className='questionDiv'>
-                    <h1>Top Questions</h1>
+                <div className=''>
+                    <h1>Users</h1>
                     <div className="originalFilter">
                         <div onClick={() => setFilter('&order=asc&sort=reputation')}>Reputation</div>
                         <div onClick={() => setFilter('&order=asc&sort=creation')}>New users</div>
                         <div onClick={() => setFilter('&order=desc&sort=name')}>Name</div>
                     </div>
-                    {items.map((user) =>  
-                        <div  key={user.account_id} className='userItem'>
-                            <ImgUser user={user}/>
-                            <NavLink to={`/users/${user.user_id}`} className="userName">{user.display_name}</NavLink>
-                            <p className="userLocation">{user.location}</p>
-                            <p className="userRep">{(user.reputation > 999) ? (user.reputation/1000).toFixed(1)+'K' : user.reputation}</p>
-                            <div className='allTags'>
-                                <GetTags id={user.user_id}/>
-                            </div>
-                        </div> 
-                    )}    
+                    <div className='userContainer'>
+                        {items.map((user) =>  
+                            <div  key={user.account_id} className='userItem'>
+                                <ImgUser user={user}/>
+                                <NavLink to={`/users/${user.user_id}`} className="userName">{user.display_name}</NavLink>
+                                <p className="userLocation">{user.location}</p>
+                                <p className="userRep">{(user.reputation > 999) ? (user.reputation/1000).toFixed(1)+'K' : user.reputation}</p>
+                                <div className='allTags'>
+                                    <GetUsersTags id={user.user_id}/>
+                                </div>
+                            </div> 
+                        )}    
+                    </div>
                 </div>       
             </div>
         );

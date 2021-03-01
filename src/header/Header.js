@@ -75,12 +75,9 @@ function Header() {
 
     return (
         <header>
-            <div className="label">
                 <NavLink to="/">
                     <img src={logo} className="logo" alt="logo"/>
-                    <span>stack <b>usof</b></span>
                 </NavLink>   
-            </div>
             <input type='search' placeholder='Search...'/>
             <nav>
                 <li><NavLink to="/">Main</NavLink></li>

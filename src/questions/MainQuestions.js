@@ -31,8 +31,6 @@ function MainQuestion() {
     } else {
         return (
             <div className='mainContainer'>
-                <div className='filters'>   
-                </div>
                 <div className='questionDiv'>
                     <h1>Top Questions</h1>
                     <div className="originalFilter">

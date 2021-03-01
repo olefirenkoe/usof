@@ -1,0 +1,7 @@
+footer {
+    display: block;
+    margin-bottom: -200px;
+    background: #363636;
+    color: #9fa6ad;
+    display: flex;
+}

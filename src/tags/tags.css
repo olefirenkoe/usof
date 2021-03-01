@@ -1,15 +1,7 @@
 .tagsContainer {
-    width: 100%;
     display: flex;
     flex-wrap: wrap;
-    grid-area: tagsContainer;
-}
-
-.mainTagContainer {
-    width: 100%;
-    display: grid;
-    grid-template-rows: 15% 85%;
-    grid-template-areas: "filters tagsContainer";
+    padding: 5px 0 0 20px;
 }
 
 .tagDiv {
@@ -25,7 +17,6 @@
 
 .tagItem  {
     padding: 3px;
-    /* margin-top: 10px; */
     width: max-content;
 }
 

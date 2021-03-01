@@ -1,29 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
 
-.mainUserContainer {
-    display: grid;
-    width: 100%;
-    display: grid;
-    grid-template-rows: 30% 70%;
-    grid-template-areas: "filters usersDiv";
+* {
+    font-family: 'Roboto Condensed', sans-serif;
 }
 
-.usersDiv {
+.userContainer {
     display: flex;
     flex-wrap: wrap;
-    padding-left: 10px;
-    font-family: 'Roboto Condensed', sans-serif;
-    width: auto;
-    margin-left: 20px;
-    grid-area: usersDiv;
-    margin-bottom: 20px;
-    border-left: 1px solid #494949;
+    padding: 10px;
 }
 
 .userItem {
     width: 200px;
-    margin-top: 20px;
-    margin-right: 20px;
+    margin: 20px 20px 0 0;
     position: relative;
 }
 
@@ -87,15 +76,13 @@
     width: 200px;
     height: 110px;
     overflow: hidden;
-    /* background: #c5c9cd; */
     background: #C4C4C4;
     z-index: 8;
     position: absolute;
     top: -10px;
     left: -10px;
     border-radius: 3px;
-    padding-left: 70px;
-    padding-bottom: 10px;
+    padding: 0 0 10px 70px;
 }
 
 .priviewUser > p {
@@ -123,10 +110,9 @@
 }
 
 .badge {
-    margin-top: 4px;
+    margin: 4px 2px 0 0;
     width: 5px;
     height: 5px;
-    margin-right: 2px;
     border-radius: 50%; 
 }
 
@@ -159,22 +145,14 @@
     grid-template-areas: "filters allUsers";
 }
 
-/* .allUsers {
-    grid-area: allUsers;
-    display: flex;
-    flex-wrap: wrap;
-} */
-
 .mainUser {
     min-height: calc(100vh - 70px);
     margin-bottom: 20px;
     position: relative;
     width: 700px;
-    font-family: 'Roboto Condensed', sans-serif;
 }
 
 .mainUser > .userLocation {
- 
     font-size: 20px;
     border-bottom: 2px solid rgb(73, 71, 71);
     margin-bottom: 10px;
@@ -185,10 +163,6 @@
 .aboutUser {
     color: silver;
     margin-left: 10px;
-    /* position: absolute;
-    top: 50px;
-    left: 170px;
-    height: max-content; */
 }
 
 .aboutUser > p > a {
@@ -202,7 +176,6 @@
 .badges > .badgesItem {
     font-size: 15px;
     color: #969696;
-
 }
 
 .badges {
@@ -219,9 +192,8 @@
 }
 
 .bigUserImg {
-    margin-left: 20px;
     float: left;
     margin-right: 20px;
     height: 150px;
-    margin-bottom: 10px;
+    margin: 0 0 10px 20px;
 }
