@@ -1,9 +1,9 @@
 import { NavLink } from 'react-router-dom';
-import upVote from '../images/up_vote.png';
-import downVote from '../images/down_vote.png';
-import accepted from '../images/accepted.png';
+import upVote from '../../images/up_vote.png';
+import downVote from '../../images/down_vote.png';
+import accepted from '../../images/accepted.png';
 import Comments from './Comments';
-import dataFormated from '../packages/dataFormated';
+import dataFormated from '../../packages/dataFormated';
 
 function Answers(props) {
     return (

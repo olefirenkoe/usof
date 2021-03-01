@@ -19,6 +19,7 @@ function MainTags() {
             (error) => {
                 setIsLoaded(true);
                 setError(error);
+                console.log(error);
             }
         )
     }, [filter])
@@ -51,6 +52,5 @@ function MainTags() {
         );
     }
 }
-
 
 export default MainTags;

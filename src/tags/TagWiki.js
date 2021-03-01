@@ -9,7 +9,6 @@ function TagWiki(props) {
     let name = encodeURIComponent(props.name)
 
     useEffect(() => {
-        console.log(1)
         axios.get(`https://api.stackexchange.com/2.2/tags/${name}/wikis?&site=stackoverflow&key=${process.env.REACT_APP_KEY}`)
             .then((result) => {
                 setItems(result.data.items[0]);
@@ -18,6 +17,7 @@ function TagWiki(props) {
             (error) => {
                 setIsLoaded(true);
                 setError(error);
+                console.log(error);
             }
         )
     }, [])

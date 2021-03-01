@@ -1,18 +1,21 @@
+import { useParams } from 'react-router-dom';
 import {useEffect, useState} from 'react';
 import * as axios from 'axios';
 import Statistic from './Statistic';
+import { NavLink } from 'react-router-dom';
 import QuestionOwner from './QuestionOwner';
 import './main.css';
-import {NavLink} from 'react-router-dom';
 
-function MainQuestion() {
+function TaggedQuestions() {
+    let {tagName} = useParams();
+
     const [error, setError] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
     const [items, setItems] = useState([]);
     const [filter, setFilter] = useState('');
 
     useEffect(() => {
-        axios.get(`https://api.stackexchange.com/2.2/questions?pagesize=50&site=stackoverflow&key=${process.env.REACT_APP_KEY}${filter}`)
+        axios.get(`https://api.stackexchange.com/2.2/questions?pagesize=50&tagged=${tagName}&site=stackoverflow&key=${process.env.REACT_APP_KEY}${filter}`)
             .then((result) => {
                 setItems(result.data.items);
                 setIsLoaded(true);
@@ -34,7 +37,7 @@ function MainQuestion() {
                 <div className='filters'>   
                 </div>
                 <div className='questionDiv'>
-                    <h1>Top Questions</h1>
+                    <h1>Questions tagged [ {tagName} ]</h1>
                     <div className="originalFilter">
                         <div onClick={() => setFilter('&order=desc&sort=creation')}>Newest</div>
                         <div onClick={() => setFilter('&order=desc&sort=activity')}>Active</div>
@@ -60,4 +63,5 @@ function MainQuestion() {
     }
 }
 
-export default MainQuestion;
+
+export default TaggedQuestions;

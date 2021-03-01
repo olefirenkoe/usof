@@ -16,6 +16,7 @@ function GetTags(props) {
         (error) => {
             setIsLoaded(true);
             setError(error); 
+            console.log(error);
         });
     },[]);
 
