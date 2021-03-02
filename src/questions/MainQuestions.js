@@ -37,7 +37,7 @@ function MainQuestion() {
 
     useEffect(() => {
         setCurrentPage(1);
-    }, [filter]);
+    }, [filter, pageSize]);
 
     if (error) {
         return <h1>Something went wrong...</h1>;
@@ -70,11 +70,11 @@ function MainQuestion() {
                     <div className="paginPageSize">
                         <div className='pagination'>
                             {currentPage > 1 && <span onClick={() => setCurrentPage(currentPage - 1)}>Prev</span>}
-                            {arrPages.map((num) => <span className={num === currentPage && "activePage"} onClick={() => setCurrentPage(num)} key={num}>{num}</span>)}
+                            {arrPages.map((num) => <span className={(num === currentPage) ? "activePage" : null} onClick={() => setCurrentPage(num)} key={num}>{num}</span>)}
                             <span onClick={() => setCurrentPage(currentPage + 1)}>Next</span>
                         </div>
                         <div className='pageSize'>
-                            {arrPageSize.map((num) => <span className={num === pageSize && "activePage"} onClick={() => setPageSize(num)} key={num}>{num}</span>)}
+                            {arrPageSize.map((num) => <span className={(num === pageSize) ? "activePage" : null} onClick={() => setPageSize(num)} key={num}>{num}</span>)}
                             <span id='per'>per page</span>
                         </div>
                     </div>
