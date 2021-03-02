@@ -12,7 +12,7 @@ function MainUsers() {
     const [filter, setFilter] = useState('');
 
     useEffect(() => {
-        axios.get(`https://api.stackexchange.com/2.2/users?site=stackoverflow&filter=!0Z-LvgkIiS)pY6ZMtsOr_tRsP&key=${process.env.REACT_APP_KEY}${filter}`)
+        axios.get(`https://api.stackexchange.com/2.2/users?page=1&pagesize=36&site=stackoverflow&filter=!0Z-LvgkIiS)pY6ZMtsOr_tRsP&key=${process.env.REACT_APP_KEY}${filter}`)
             .then((result) => {
                 setItems(result.data.items);
                 setIsLoaded(true);

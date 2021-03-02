@@ -11,7 +11,7 @@ function MainTags() {
     const [filter, setFilter] = useState('');
 
     useEffect(() => {
-        axios.get(`https://api.stackexchange.com/2.2/tags?&site=stackoverflow&key=${process.env.REACT_APP_KEY}${filter}`)
+        axios.get(`https://api.stackexchange.com/2.2/tags?page=1&pagesize=36&site=stackoverflow&key=${process.env.REACT_APP_KEY}${filter}`)
             .then((result) => {
                 setItems(result.data.items);
                 setIsLoaded(true);

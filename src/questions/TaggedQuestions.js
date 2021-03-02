@@ -25,7 +25,7 @@ function TaggedQuestions() {
                 setError(error);
             }
         )
-    }, [filter])
+    }, [filter, tagName])
 
     if (error) {
         return <h1>Something went wrong...</h1>;

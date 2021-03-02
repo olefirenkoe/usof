@@ -46,3 +46,50 @@ h1 {
 .originalFilter > div:last-child {
   border-radius: 0px 5px 5px 0px;
 }
+
+/* pagination */
+
+.paginPageSize {
+  margin: 50px 20px 20px 20px;
+  display: flex;
+}
+
+.pagination, .pageSize {
+  width: max-content;
+  /* margin: 20px; */
+  font-size: 20px;
+  color: #cecbcb;
+  /* margin-bottom: 20px; */
+}
+
+.pageSize {
+  justify-self: end;
+  margin-left: auto;
+  margin-right: 0;
+  /* justi-self: flex-end; */
+}
+
+.pagination > span:not(:first-child), .pageSize > span {
+  margin-left: 10px;
+}
+
+.pagination > span, .pageSize > span {
+  cursor: pointer;
+  /* width: 20px; */
+  padding: 4px 8px 4px 8px;
+  border: 1px solid #494949;
+  font-size: 15px;
+  border-radius: 3px;
+}
+
+.activePage {
+  background: #f4811f;
+  color: white;
+  border: none;
+}
+
+#per {
+  border: none;
+  color: white;
+  font-size: 12px;
+}
