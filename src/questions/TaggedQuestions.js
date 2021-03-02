@@ -13,9 +13,19 @@ function TaggedQuestions() {
     const [isLoaded, setIsLoaded] = useState(false);
     const [items, setItems] = useState([]);
     const [filter, setFilter] = useState('');
+    const [currentPage, setCurrentPage] = useState(1);
+    const [pageSize, setPageSize] = useState(15);
+    
+    let arrPageSize = [15, 30, 50];
+    let allPages = 10;
+    let arrPages = [];
+
+    for (let i = 1; i <= allPages; i++) {
+        arrPages.push(i)
+    }
 
     useEffect(() => {
-        axios.get(`https://api.stackexchange.com/2.2/questions?pagesize=50&tagged=${tagName}&site=stackoverflow&key=${process.env.REACT_APP_KEY}${filter}`)
+        axios.get(`https://api.stackexchange.com/2.2/questions?page=${currentPage}&pagesize=${pageSize}&tagged=${tagName}&site=stackoverflow&key=${process.env.REACT_APP_KEY}${filter}`)
             .then((result) => {
                 setItems(result.data.items);
                 setIsLoaded(true);
@@ -25,7 +35,11 @@ function TaggedQuestions() {
                 setError(error);
             }
         )
-    }, [filter, tagName])
+    }, [filter, tagName, currentPage, pageSize]);
+
+    useEffect(() => {
+        setCurrentPage(1);
+    }, [filter, pageSize, tagName]);
 
     if (error) {
         return <h1>Something went wrong...</h1>;
@@ -57,6 +71,17 @@ function TaggedQuestions() {
                             </div>
                         </div>
                     )}
+                    <div className="paginPageSize">
+                        <div className='pagination'>
+                            {currentPage > 1 && <span onClick={() => setCurrentPage(currentPage - 1)}>Prev</span>}
+                            {arrPages.map((num) => <span className={(num === currentPage) ? "activePage" : null} onClick={() => setCurrentPage(num)} key={num}>{num}</span>)}
+                            {currentPage < 10 && <span onClick={() => setCurrentPage(currentPage + 1)}>Next</span>}
+                        </div>
+                        <div className='pageSize'>
+                            {arrPageSize.map((num) => <span className={(num === pageSize) ? "activePage" : null} onClick={() => setPageSize(num)} key={num}>{num}</span>)}
+                            <span id='per'>per page</span>
+                        </div>
+                    </div>
                 </div>       
             </div>
         );

@@ -10,9 +10,17 @@ function MainUsers() {
     const [isLoaded, setIsLoaded] = useState(false);
     const [items, setItems] = useState([]);
     const [filter, setFilter] = useState('');
+    const [currentPage, setCurrentPage] = useState(1);
+    
+    let allPages = 10;
+    let arrPages = [];
+
+    for (let i = 1; i <= allPages; i++) {
+        arrPages.push(i)
+    }
 
     useEffect(() => {
-        axios.get(`https://api.stackexchange.com/2.2/users?page=1&pagesize=36&site=stackoverflow&filter=!0Z-LvgkIiS)pY6ZMtsOr_tRsP&key=${process.env.REACT_APP_KEY}${filter}`)
+        axios.get(`https://api.stackexchange.com/2.2/users?page=${currentPage}&pagesize=36&site=stackoverflow&filter=!0Z-LvgkIiS)pY6ZMtsOr_tRsP&key=${process.env.REACT_APP_KEY}${filter}`)
             .then((result) => {
                 setItems(result.data.items);
                 setIsLoaded(true);
@@ -23,7 +31,11 @@ function MainUsers() {
                 console.log(error);
             }
         )
-    }, [filter])
+    }, [filter, currentPage]);
+
+    useEffect(() => {
+        setCurrentPage(1);
+    }, [filter]);
 
     if (error) {
         return <h1>Something went wrong...</h1>;
@@ -50,7 +62,14 @@ function MainUsers() {
                                     <GetUsersTags id={user.user_id}/>
                                 </div>
                             </div> 
-                        )}    
+                        )}
+                        <div className="paginPageSize">
+                            <div className='pagination'>
+                                {currentPage > 1 && <span onClick={() => setCurrentPage(currentPage - 1)}>Prev</span>}
+                                {arrPages.map((num) => <span className={(num === currentPage) ? "activePage" : null} onClick={() => setCurrentPage(num)} key={num}>{num}</span>)}                           
+                                {currentPage < 10 && <span onClick={() => setCurrentPage(currentPage + 1)}>Next</span>}
+                            </div>
+                        </div>    
                     </div>
                 </div>       
             </div>

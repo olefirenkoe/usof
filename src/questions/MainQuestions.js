@@ -70,8 +70,8 @@ function MainQuestion() {
                     <div className="paginPageSize">
                         <div className='pagination'>
                             {currentPage > 1 && <span onClick={() => setCurrentPage(currentPage - 1)}>Prev</span>}
-                            {arrPages.map((num) => <span className={(num === currentPage) ? "activePage" : null} onClick={() => setCurrentPage(num)} key={num}>{num}</span>)}
-                            <span onClick={() => setCurrentPage(currentPage + 1)}>Next</span>
+                            {arrPages.map((num) => <span className={(num === currentPage) ? "activePage" : null} onClick={() => setCurrentPage(num)} key={num}>{num}</span>)}                           
+                            {currentPage < 10 && <span onClick={() => setCurrentPage(currentPage + 1)}>Next</span>}
                         </div>
                         <div className='pageSize'>
                             {arrPageSize.map((num) => <span className={(num === pageSize) ? "activePage" : null} onClick={() => setPageSize(num)} key={num}>{num}</span>)}

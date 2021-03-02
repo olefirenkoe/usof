@@ -52,6 +52,7 @@ h1 {
 .paginPageSize {
   margin: 50px 20px 20px 20px;
   display: flex;
+  flex-wrap: wrap;
 }
 
 .pagination, .pageSize {
@@ -59,13 +60,14 @@ h1 {
   /* margin: 20px; */
   font-size: 20px;
   color: #cecbcb;
-  /* margin-bottom: 20px; */
+  margin-top: 10px;
 }
 
 .pageSize {
   justify-self: end;
-  margin-left: auto;
-  margin-right: 0;
+  /* margin-left: auto;
+  margin-right: 0; */
+  margin: 10px 0 0 auto;
   /* justi-self: flex-end; */
 }
 
